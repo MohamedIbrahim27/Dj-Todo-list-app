@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block body %}
+    <style>
+        .item{
+            margin: 0 auto;
+            display: grid;
+        gap: 10px;
+        }
+        .item .update p {
+            display: flex;
+            align-items: center;
+        }
+
+        .item label {
+            margin-right: 10px;
+            font-size: 25px;
+        }
+        .item .title,.description{
+            display: flex;
+            align-items: center;
+        }
+        .item .title h3{
+            font-size: 30px;
+            margin-left: 10px;
+        }
+        .item .creat-at{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+    </style>
+    <div class="header" style="min-height: 30px;">
+        <a class="logout" style="font-size: 20px;" href="/">&#8592; Back</a>
+        <h1>Some Detail</h1>
+    </div>
+    <div class="item" style="padding: 10px;">
+        <div class="title">
+            <label for="">Title :</label>
+            <h3>{{task_detail.title}}</h3>
+        </div>
+        <div class="description">
+            <label for="">Description :</label>
+            <h5 style="font-size: 20px;">{{task_detail.description}}</h5>
+        </div>
+        <div class="if-complete">
+            {% if task_detail.complete %}
+                <h6 style="display: flex;gap: 10px;align-items: center;font-size: 10px;">
+                    Complete 
+                    <img src="/static/admin/img/icon-yes.svg" 
+                    style="height: 20px;width:20px" alt="True"></h6>
+            {% else %}
+                <h6 style="display: flex;gap: 10px;align-items: center;font-size: 10px;">
+                    Not Complete <img src="/static/admin/img/icon-no.svg" 
+                    style="height: 20px;width:20px" alt="True"></h6>
+            {% endif %}
+        </div>
+        <div class="creat-at">
+            <h4>Created At</h4>
+            <h6>{{task_detail.creat_at}}</h6>
+        </div>
+    </div>
+{% endblock body %}

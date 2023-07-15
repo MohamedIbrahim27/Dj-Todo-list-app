@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block body %}
+<style>
+    .item .login1 p{
+
+        justify-content: center;
+        gap: 10px;
+    }
+    .item .login1 p label{
+        display:block;
+        margin-bottom: 5px;
+    }
+    .item .login1 input {
+        background-color: #cbc0c0;
+        color: black;
+        padding: 5px;
+        font-size: 15px;
+        font-weight: 700;
+        border: 1px solid #eb796f;
+    }
+</style>
+    <div class="header" style="min-height: 30px;">
+        <h3 class="logout" style="font-size: 20px;">Wellcome in To Do App</h3>
+    </div>
+    <div style="margin: 0 auto;" class="item">
+        <form class="login1" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-primary" style="    display: flex;
+            margin: 0 auto;
+            margin-top: 10px;
+            width: 40%;
+            justify-content: center;" type="submit">Login</button>
+        </form>
+    </div>
+
+<p>Don't have an accounts ? <a href="{% url 'todo_list:register' %}">Register</a></p>
+{% endblock body %}

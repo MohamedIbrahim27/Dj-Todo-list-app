@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block body %}
+    <style>
+        .item .register p{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .item .register input {
+            background-color: #cbc0c0;
+            color: black;
+            padding: 5px;
+            font-size: 15px;
+            font-weight: 700;
+            border: 1px solid #eb796f;
+        }
+        .item .register span ,ul{
+            display: none;
+        }
+    </style>
+    <div class="header" style="min-height: 30px;">
+        <h3 class="logout" style="font-size: 20px;">Register</h3>
+    </div>
+    <div class="item">
+        <form style="display: grid;
+        gap: 15px;" class="register" method="POST">
+            {% csrf_token %}
+            <div style="margin: 0 auto;">
+                <label style="display:block;margin-bottom: 5px;">username</label>
+                {{form.username}}
+            </div>
+            <div style="margin: 0 auto;">
+                <label style="display:block;margin-bottom: 5px;">password</label>
+                {{form.password1}}
+            </div>
+            <div style="margin: 0 auto;">
+                <label style="display:block;margin-bottom: 5px;">password2</label>
+                {{form.password2}}
+            </div>
+            <button class="btn btn-primary" style="    display: flex;
+            margin: 0 auto;
+            margin-top: 10px;
+            width: 30%;
+            justify-content: center;" type="submit">Register</button>
+        </form>
+
+    </div>
+
+<p>Have an accounts ? <a href="{% url 'todo_list:login' %}">Login</a></p>
+{% endblock body %}

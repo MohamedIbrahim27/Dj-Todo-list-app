@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block body %}
+<style>
+    .item .update input {
+        background-color: #cbc0c0;
+        color: black;
+        padding: 5px;
+        font-size: 15px;
+        font-weight: 700;
+        border: 1px solid #eb796f;
+    }
+
+    .item .update p {
+        display: flex;
+        align-items: center;
+    }
+
+    .item .update p label {
+        margin-right: 10px;
+    }
+
+    .item .update p textarea {
+        width: 100%;
+        background-color: #cbc0c0;
+        height: 50px;
+        padding: 5px;
+        font-size: 15px;
+        font-weight: 700;
+        color: black;
+        border: 1px solid #eb796f;
+    }
+
+    input[type=checkbox] {
+        position: relative;
+        cursor: pointer;
+    }
+
+    input[type=checkbox]:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 0;
+        left: 0;
+        border: 2px solid #555555;
+        border-radius: 3px;
+        background-color: white;
+    }
+
+    input[type=checkbox]:checked:after {
+        content: "";
+        display: block;
+        width: 5px;
+        height: 10px;
+        border: solid black;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        top: 2px;
+        left: 6px;
+    }
+</style>
+<div class="header" style="min-height: 30px;">
+    <a class="logout" style="font-size: 20px;" href="/">&#8592; Back</a>
+</div>
+
+<div class="item">
+    <form class="update" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-primary" style="display: flex;
+        margin: 0 auto;
+        margin-bottom: 20px;" type="submit">Update</button>
+    </form>
+</div>
+
+{% endblock body %}

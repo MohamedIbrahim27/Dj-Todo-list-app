@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+<h3>Task Form</h3>
+<a href="/">Home</a>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <p>Are u Sure to Delete this Task ? {{task_delete.title}}</p>
+    <button type="submit">Delete</button>
+</form>
+{% endblock body %}
